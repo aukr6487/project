@@ -49,38 +49,26 @@ void addArtist(string name){
   Node *newArtist = newNode(name);
   MovieNode *current = root;
   while(root!=NULL){
-    if( == M){
-
-    }
-  }
-  MovieNode *newMovie = new MovieNode(ranking, title, year, quantity);
-  if(root == NULL){
-    root = newMovie;
-    return;
-  }
-  MovieNode *current = root;
-  while(root!=NULL){
-    if(current->title == title){
-        current->quantity++;
+    if(name == current->name){
         return;
-    }
-    else if(title < current->title){
-      if(current->leftChild == NULL){
-        current->leftChild = newMovie;
-        newMovie->parent = current;
-        return;
-      }
-      current = current->leftChild;
-    } else if(title > current->title){
-      if(current->rightChild == NULL){
-        current->rightChild = newMovie;
-        newMovie->parent = current;
-        return;
-      }
-      current = current->leftChild;
+    } else if(name < current->name){
+        if(current->leftChild == NULL){
+            current->leftChild = newArtst;
+            newArtist->parent = current;
+            return;
+        }
+        current = current->leftChild;
+    } else if(name > current->name){
+        if(current->rightChild == NULL){
+            current->rightChild = newArtist;
+            newArtist->parent = current;
+            return;
+        }
+        current = current->leftChild;
     }
   }
 }
+
 
 Node* newNode(string letter){
     Node* node = new Node;
