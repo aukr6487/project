@@ -37,4 +37,36 @@ public:
   string addToMyLibrary(string name, string genre);
   string removeFromMyLibrary(string name);
 };
+
+struct ArtistNode
+{
+  std::string name;
+
+  ArtistNode *parent;
+  ArtistNode *leftChild;
+  ArtistNode *rightChild;
+
+  ArtistNode(){
+    parent = leftChild = rightChild = nullptr;
+  }
+
+  ArtistNode(std::string n) {
+    name = n;
+    parent = leftChild = rightChild = nullptr;
+  }
+};
+
+class ArtistTree{
+public:
+  ArtistTree();
+  ~ArtistTree();
+  void printArtistLibrary();
+  void addArtist(std::string title);
+  //void findArist(std::string title);
+
+private:
+  ArtistNode *search(std::string title);
+  ArtistNode *root;
+};
+
 # endif
