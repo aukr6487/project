@@ -269,51 +269,25 @@ int main(int argc, char*argv[]){
           cout<<"4. Exit to Main Menu"<<endl;
           cin>>choice2;
           while(choice2!="4"){
-              if(choice2=="1"){
-                yay.displayLibrary();
-              }
-              if(choice2=="2"){
-                cout<<"Enter Name: ";
-                cin>>name2;
-                cout<<"Enter Genre: ";
-                cin>>genre2;
-                yay.addToMyLibrary(name2, genre2);
-              }
-              if(choice=="3"){
-                string choice2;
-                string name2;
-                string genre2;
-                cout<<"======My Library======"<<endl;
-                cout<<"1. Dispaly My Library"<<endl;
-                cout<<"2. Add an Artist to My Library"<<endl;
-                cout<<"3. Remove an Artist from My Libray"<<endl;
-                cout<<"4. Exit to Main Menu"<<endl;
-                cin>>choice2;
-                while(choice2!="4"){
-                    if(choice2=="1"){
-                      yes.printArtistLibrary();
-                    }
-                    if(choice2=="2"){
-                      cout<<"Enter Name: ";
-                      cin>>name2;
-                      yes.addArtist(name2);
-                      break;
-                    }
+            if(choice2=="1"){
+              yes.printArtistLibrary();
+            }
+            if(choice2=="2"){
+               cout<<"Enter Name: ";
+               cin>>name2;
+               yes.addArtist(name2);
+               break;
+            }
               /*if(choice2=="3"){
                 cout<<"Enter Name of Artist to Remove: ";
                 cin>>name2;
                 yay.removeFromMyLibrary(name2);
               }*/
-                    if(choice2=="4"){
-                      cout<<"Goodbye!";
-                    }
-                  }
-               }
-              if(choice2=="4"){
-                cout<<"Goodbye!";
-              }
-            }
           }
+          if(choice2=="4"){
+             cout<<"Goodbye!";
+          }
+        }
     if(choice=="4"){
       cout<<"Enter Name: ";
       cin>>name;
