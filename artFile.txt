@@ -5,7 +5,8 @@ Bob_Dylan, Folk
 Nirvana, Alternative
 Radiohead, Rock
 Green_Day, Rock
-Foo Fighters, Rock
+Foo_Fighters, Rock
 Coldplay, Rock
-Smashing Pumpkins, Rock
+Smashing_Pumpkins, Rock
 U2, Alternative
+Miley_Cyrus, Pop
