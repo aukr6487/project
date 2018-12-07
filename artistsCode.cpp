@@ -209,14 +209,12 @@ int main(int argc, char*argv[]){
           cin>>choice2;
           while(choice2!="4"){
               if(choice2=="1"){
-                yay.displayLibrary();
+                yay.printArtistLibrary();
               }
               if(choice2=="2"){
                 cout<<"Enter Name: ";
                 cin>>name2;
-                cout<<"Enter Genre: ";
-                cin>>genre2;
-                yay.addToMyLibrary(name2, genre2);
+                yay.addArtist(name2);
               }
               if(choice2=="3"){
                 cout<<"Enter Name of Artist to Remove: ";
