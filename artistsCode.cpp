@@ -97,25 +97,13 @@ while(!que.empty()){
 }
 cout<<endl;
 }//BFS  search?
-string artistsDatabase::viewLibray(){
 
-}
 string artistsDatabase::addArtist(string name, string genre){
   artist art;
   art.name=name;
   art.genre=genre;
   verts.push_back(art);
 }
-string artistsDatabase::displayLibrary(){
-
-}
-string artistsDatabase::addToMyLibrary(string name, string genre){
-
-}
-string artistsDatabase::removeFromMyLibrary(string name){
-
-}
-
 
 void artistsDatabase::displayEdges(){
   for (int i=0;i<verts.size();i++) {
@@ -127,9 +115,88 @@ void artistsDatabase::displayEdges(){
  }
 }
 
+void deleteArtistTree(ArtistNode* node){
+  if(node == NULL){
+    return;
+  }
+  deleteArtistTree(node->leftChild);
+  delete node;
+  deleteArtistTree(node->rightChild);
+return;
+}
+
+ArtistTree::ArtistTree(){
+    root = NULL;
+}
+
+ArtistTree::~ArtistTree(){
+    deleteArtistTree(root);
+}
+
+ArtistNode* ArtistTree::search(string name){
+  if(root==NULL){
+    return NULL;
+  }
+  ArtistNode *current = root;
+  while(current!=NULL){
+    if(current->name == name){
+      return current;
+    }
+    if(name < current->name){
+      current = current->leftChild;
+    } else {
+      current = current->rightChild;
+    }
+  }
+  return current;
+}
+
+ArtistNode* printArtist(ArtistNode *node){
+  if(node!=NULL){
+    printArtist(node->leftChild);
+    cout<<"Artist: "<< node->name <<endl;
+    printArtist(node->rightChild);
+  }
+  return node;
+}
+
+void ArtistTree::printArtistLibrary(){
+    printArtist(root);
+}
+
+
+void ArtistTree::addArtist(string name){
+  ArtistNode *newArtist = new ArtistNode(name);
+  if(root == NULL){
+    root = newArtist;
+    return;
+  }
+  ArtistNode *current = root;
+  while(root!=NULL){
+    if(name == current->name){
+        return;
+    } else if(name < current->name){
+        if(current->leftChild == NULL){
+            current->leftChild = newArtist;
+            newArtist->parent = current;
+            return;
+        }
+        current = current->leftChild;
+    } else if(name > current->name){
+        if(current->rightChild == NULL){
+            current->rightChild = newArtist;
+            newArtist->parent = current;
+            return;
+        }
+        current = current->leftChild;
+    }
+  }
+}
+
 
 int main(int argc, char*argv[]){
     artistsDatabase yay;
+  ArtistTree yes;
    ifstream myfile("artFile.txt");
   string line;
   if(myfile.is_open()){
@@ -212,11 +279,36 @@ int main(int argc, char*argv[]){
                 cin>>genre2;
                 yay.addToMyLibrary(name2, genre2);
               }
-              if(choice2=="3"){
+              if(choice=="3"){
+                string choice2;
+                string name2;
+                string genre2;
+                cout<<"======My Library======"<<endl;
+                cout<<"1. Dispaly My Library"<<endl;
+                cout<<"2. Add an Artist to My Library"<<endl;
+                cout<<"3. Remove an Artist from My Libray"<<endl;
+                cout<<"4. Exit to Main Menu"<<endl;
+                cin>>choice2;
+                while(choice2!="4"){
+                    if(choice2=="1"){
+                      yes.printArtistLibrary();
+                    }
+                    if(choice2=="2"){
+                      cout<<"Enter Name: ";
+                      cin>>name2;
+                      yes.addArtist(name2);
+                      break;
+                    }
+              /*if(choice2=="3"){
                 cout<<"Enter Name of Artist to Remove: ";
                 cin>>name2;
                 yay.removeFromMyLibrary(name2);
-              }
+              }*/
+                    if(choice2=="4"){
+                      cout<<"Goodbye!";
+                    }
+                  }
+               }
               if(choice2=="4"){
                 cout<<"Goodbye!";
               }
