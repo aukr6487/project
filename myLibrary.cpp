@@ -3,7 +3,7 @@ using namespace std;
 
 // Binary Tree Node
 struct Node {
-    string letter;
+    string name;
     Node *left, *right;
 };
 
