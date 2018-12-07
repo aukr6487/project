@@ -46,14 +46,6 @@ artist* artistsDatabase::find(string name){
   }
 }
 
-//FIND VERTEX GENRE
-artist* artistsDatabase::findG(string genre){
-  for(int i=0;i<verts.size();i++){
-    if(verts[i].genre==genre){
-      return &verts[i];
-    }
-  }
-}
 
 //FIND RELATED ARTIST
 void artistsDatabase::related(string name){
@@ -79,32 +71,30 @@ cout<<endl;
 //FIND RELATED GENRE
 string artistsDatabase::findGenre(string genre){
     queue<artist*> que;
-    string genName;
+    string name;
   for(int i=0; i<verts.size();i++){
+    //cout<<verts[i].genre;
     if(verts[i].genre==genre){
-       genName= verts[i].name;
+       name= verts[i].name;
     }
-    break;
   }
-cout<<1;
-  artist* gene = find(genName);
-  cout<<1;
- //gene->visited=true;
- cout<<1;
-  que.push(gene);
+
+  artist* vert = find(name);
+  vert->visited=true;
+  que.push(vert);
+
 while(!que.empty()){
-  gene=que.front();
+  vert=que.front();
   que.pop();
-  for(int i=0; i<gene->edges.size();i++){
-    if(gene->edges[i].A->visited!=true){
-      gene->edges[i].A->visited =true;
-      que.push(gene->edges[i].A);
-      cout<<gene->edges[i].A->genre<<", ";
+  for(int i=0; i<vert->edges.size();i++){
+    if(vert->edges[i].A->visited!=true){
+      vert->edges[i].A->visited =true;
+      que.push(vert->edges[i].A);
+      cout<<vert->edges[i].A->name<<", ";
     }
   }
 }
 cout<<endl;
-
 }//BFS  search?
 string artistsDatabase::viewLibray(){
 
