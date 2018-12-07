@@ -47,6 +47,7 @@ artist* artistsDatabase::find(string name){
 }
 
 
+
 //FIND RELATED ARTIST
 void artistsDatabase::related(string name){
   queue<artist*> que;
@@ -100,7 +101,10 @@ string artistsDatabase::viewLibray(){
 
 }
 string artistsDatabase::addArtist(string name, string genre){
-
+  artist art;
+  art.name=name;
+  art.genre=genre;
+  verts.push_back(art);
 }
 string artistsDatabase::displayLibrary(){
 
@@ -199,12 +203,14 @@ int main(int argc, char*argv[]){
           cin>>choice2;
           while(choice2!="4"){
               if(choice2=="1"){
-                yay.printArtistLibrary();
+                yay.displayLibrary();
               }
               if(choice2=="2"){
                 cout<<"Enter Name: ";
                 cin>>name2;
-                yay.addArtist(name2);
+                cout<<"Enter Genre: ";
+                cin>>genre2;
+                yay.addToMyLibrary(name2, genre2);
               }
               if(choice2=="3"){
                 cout<<"Enter Name of Artist to Remove: ";
@@ -219,9 +225,12 @@ int main(int argc, char*argv[]){
     if(choice=="4"){
       cout<<"Enter Name: ";
       cin>>name;
-      cout<<"Enter Genre";
+      cout<<"Enter Genre: ";
       cin>>genre;
       yay.addArtist(name,genre);
+      cout<<1;
+      yay.addE();
+      yay.displayEdges();
     }
     cout<<"======Main Menu======"<<endl;
     cout<<"1. Search for Related Artists"<<endl;
