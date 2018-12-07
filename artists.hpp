@@ -27,7 +27,6 @@ public:
   ~artistsDatabase();
   void displayEdges();
   artist* find(string name);
-  artist* findG(string genre);
   void addV(string name, string genre);
   void addE();
   void related(string name); //BFS search?
