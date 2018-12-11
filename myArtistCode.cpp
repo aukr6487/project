@@ -142,3 +142,43 @@ ArtistNode* ArtistTree::deleteNode(string name)
     }
     return root;
 }
+
+
+//MAIN!!!!!
+if(choice=="3"){
+        string choice2;
+        string name2;
+        string genre2;
+        cout<<"======My Library======"<<endl;
+        cout<<"1. Display My Library"<<endl;
+        cout<<"2. Add an Artist to My Library"<<endl;
+        cout<<"3. Delete an artist from My Library"<<endl;
+        cout<<"4. Exit to Main Menu"<<endl;
+        cout<<"Select option: ";
+        cin>>choice2;
+        while(choice2!="4"){
+          if(choice2=="1"){
+            yes.printArtistLibrary();
+            cout<<endl;
+            break;
+          }
+          if(choice2=="2"){
+            cout<<"Enter Name: ";
+            cin>>name2;
+            yes.addArtist(name2);
+            break;
+          }
+         if(choice2=="3"){
+           cout<<"Enter artist you want to delete: ";
+           cin>>name2;
+           yes.deleteNode(name2);
+        //cout<<"Clearing your library..."<<endl;
+        //cin>>name2;
+        //yes.~ArtistTree();
+        break;
+         }
+        }
+      if(choice2=="4"){
+        cout<<"Goodbye!";
+      }
+    }
