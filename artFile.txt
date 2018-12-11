@@ -1,12 +1,27 @@
-AC/DC, Rock
-Josh_Garrells, Folk
-The_Clash, Rock
-Bob_Dylan, Folk
-Nirvana, Alternative
-Radiohead, Rock
-Green_Day, Rock
-Foo_Fighters, Rock
-Coldplay, Rock
-Smashing_Pumpkins, Rock
-U2, Alternative
-Miley_Cyrus, Pop
+AC/DC,Rock
+The_Clash,Rock
+Nirvana,Punk
+Radiohead,Alternative
+Green_Day,Punk
+Foo_Fighters,Rock
+Smashing_Pumpkins,Rock
+U2,Alternative
+Alabama_Shakes,Blues
+All_Time_Low,Punk
+alt_J,Alternative
+Ariana_Grande,Pop
+Beyonce,Pop
+Bon_Iver,Indie
+Chance_the_Rapper,Rap
+Kendrick_Lamar,Rap
+Childish_Gambino,Rap
+Death_Cab_for_Cutie,Indie
+Felling_Giants,Rock
+Fleet_Foxes,Folk
+Florist,Indie
+Jay_Som,Indie
+Jodi,Indie
+Jimmy_Eat_World,Punk
+The_Killers,Pop
+Lorde,Pop
+
