@@ -1,3 +1,42 @@
+struct ArtistNode
+{
+  std::string name;
+
+  ArtistNode *parent;
+  ArtistNode *leftChild;
+  ArtistNode *rightChild;
+
+  ArtistNode(){
+    parent = leftChild = rightChild = NULL;
+  }
+
+  ArtistNode(std::string n) {
+    name = n;
+    parent = leftChild = rightChild = NULL;
+  }
+};
+
+class ArtistTree{
+public:
+  ArtistTree();
+  ~ArtistTree();
+  void printArtistLibrary();
+  void addArtist(string name);
+  void deleteArtist(string name);
+  ArtistNode *deleteNode(string name);
+  ArtistNode *minValueNode(ArtistNode* node);
+  ArtistNode *root;
+  //void findArist(std::string title);
+
+private:
+  ArtistNode *search(std::string title);
+};
+
+
+
+
+
+
 void deleteArtistTree(ArtistNode* node){
   if(node == NULL){
     return;
